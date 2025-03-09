@@ -2,12 +2,13 @@
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus commodi temporibus doloribus molestias dignissimos illum, sed perspiciatis ex dolorem obcaecati?</p>
 </template>
 <style lang="scss" scoped>
-$color: red;
+@import '@/assets/colors.scss';
 p{
-    color: $color;
+    color: $cyan;
 }
 </style>
 <script>
+
 export default {
     name: 'chartComponent',
 };

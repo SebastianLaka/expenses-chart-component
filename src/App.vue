@@ -9,11 +9,8 @@ export default {
     }
 }
 </script>
-
 <template>
-
 <chartComponent></chartComponent>
 </template>
-
 <style lang="scss">
 </style>
