@@ -2,8 +2,8 @@
 </script>
 
 <template>
-  <main></main>
 </template>
 
-<style >
+<style lang="scss">
+
 </style>
