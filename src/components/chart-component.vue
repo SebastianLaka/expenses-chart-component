@@ -19,31 +19,32 @@
 <style lang="scss" scoped>
 @import '@/assets/colors.scss';
 @import '@/assets/fonts.scss';
-.chart-main-component {
+@media (min-width: 320px) {
+  .chart-main-component {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1000px;
-  .chart-component {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100svh;
-    width: 75%;
-    .chart-header {
+    .chart-component {
       display: flex;
-      background-color: $soft-red;
-      .chart-header-balance {
-        &__balance,
-        &__amount-balance {
-          color: $cream;
-          font-size: $primary-size;
-          font-weight: $font-weight-size;
-        }
-        &__amount-balance {
-          font-size: $secondary-size;
-          font-weight: $font-bold-size;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100svh;
+      width: 75%;
+      .chart-header {
+        display: flex;
+        background-color: $soft-red;
+        .chart-header-balance {
+          &__balance,
+          &__amount-balance {
+            color: $cream;
+            font-size: $primary-size;
+            font-weight: $font-weight-size;
+          }
+          &__amount-balance {
+            font-size: $secondary-size;
+            font-weight: $font-bold-size;
+          }
         }
       }
     }
