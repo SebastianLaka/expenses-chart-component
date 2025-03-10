@@ -1,16 +1,16 @@
 <script>
-import chartComponent from './components/chart-component.vue';
-import fontsComponent from "./components/font-component.vue";
+import chartComponent from './components/chart-component.vue'
+import fontsComponent from './components/font-component.vue'
 export default {
-    name: 'App',
-    components: {
-        chartComponent,
-        fontsComponent
-    }
+  name: 'App',
+  components: {
+    chartComponent,
+    fontsComponent,
+  },
 }
 </script>
 <template>
-<chartComponent></chartComponent>
+  <chartComponent></chartComponent>
 </template>
 <style lang="scss">
 </style>
