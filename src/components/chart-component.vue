@@ -31,6 +31,7 @@
       &__amount-balance {
         color: $cream;
         font-size: $primary-size;
+        font-weight: $font-weight-size;
       }
       &__amount-balance{
         font-size: $secondary-size;
