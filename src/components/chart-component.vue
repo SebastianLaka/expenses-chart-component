@@ -1,5 +1,5 @@
 <template>
-  <div class="chart-main-component">
+  <div class="main-component">
     <div class="chart-component">
       <div class="chart-header">
         <div class="chart-header-balance">
@@ -10,9 +10,38 @@
           <img src="../assets/icons/logo.svg" alt="Component logo" />
         </div>
       </div>
-      <div class="chart-body">
-        <p class="chart-body__header">Spending - Last 7 days</p>
-        <div class="body-diagrams"></div>
+      <div class="body-component">
+        <p class="body-component__header">Spending - Last 7 days</p>
+        <div class="chart-diagrams">
+          <div class="mon-chart">
+            <div class="mon-chart__chart"></div>
+            <p class="mon-chart__day">mon</p>
+          </div>
+          <div class="tue-chart">
+            <div class="tue-chart__chart"></div>
+            <p class="tue-chart__day">tue</p>
+          </div>
+          <div class="wed-chart">
+            <div class="wed-chart__chart"></div>
+            <p class="wed-chart__day">wed</p>
+          </div>
+          <div class="thu-chart">
+            <div class="thu-chart__chart"></div>
+            <p class="thu-chart__day">thu</p>
+          </div>
+          <div class="fri-chart">
+            <div class="fri-chart__chart"></div>
+            <p class="fri-chart__day">fri</p>
+          </div>
+          <div class="sat-chart">
+            <div class="sat-chart__chart"></div>
+            <p class="sat-chart__day">sat</p>
+          </div>
+          <div class="sun-chart">
+            <div class="sun-chart__chart"></div>
+            <p class="sun-chart__day">sun</p>
+          </div>
+        </div>
         <div class="chart-body-footer">
           <div class="chart-total">
             <p class="chart-total__title">Total this month</p>
@@ -31,7 +60,7 @@
 @import '@/assets/colors.scss';
 @import '@/assets/fonts.scss';
 @media (min-width: 320px) {
-  .chart-main-component {
+  .main-component {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,25 +95,43 @@
           align-items: center;
         }
       }
-      .chart-body {
+      .body-component {
         display: flex;
         flex-direction: column;
         padding: 1em;
         background-color: $very-pale-orange;
         border-radius: 0.8em;
+        gap: 1em 0;
         &__header {
           text-align: center;
           font-weight: $font-bold-size;
           font-size: $secondary-size;
         }
-        .chart-body-footer{
+        .chart-diagrams {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .mon-chart, .tue-chart, .wed-chart, .thu-chart, .fri-chart, .sat-chart, .sun-chart{
+            &__day{
+              color: $medium-brown;
+              text-align: center;
+            }
+            &__chart{
+              height: 20px;
+              background-color: black;
+              width: 2em;
+            }
+          }
+        }
+        .chart-body-footer {
           display: flex;
           justify-content: space-between;
-          .chart-total, .chart-increase{
-            &__amount{
+          .chart-total,
+          .chart-increase {
+            &__amount {
               font-size: $secondary-size;
             }
-            &__title{
+            &__title {
               color: $medium-brown;
             }
           }
