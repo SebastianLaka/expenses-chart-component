@@ -54,6 +54,16 @@
          align-items: center;
         }
       }
+      .chart-body{
+        padding: 1em;
+        background-color: $very-pale-orange;
+        border-radius: .8em;
+        .chart-body-header{
+          text-align: center;
+          font-weight: $font-bold-size;
+          font-size: $secondary-size;
+        }
+      }
     }
   }
 }
