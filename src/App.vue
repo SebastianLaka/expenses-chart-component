@@ -13,4 +13,8 @@ export default {
   <chartComponent></chartComponent>
 </template>
 <style lang="scss">
+@import '@/assets/colors.scss';
+body{
+  background-color: $cream;
+}
 </style>

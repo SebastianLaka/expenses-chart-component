@@ -22,18 +22,21 @@
 @media (min-width: 320px) {
   .chart-main-component {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    padding: 1em;
+    height: 100svh;
     .chart-component {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: space-between;
       flex-direction: column;
-      height: 100svh;
-      width: 75%;
+      width: 100%;
       .chart-header {
         display: flex;
+        justify-content: space-between;
         background-color: $soft-red;
+        padding: 1em;
+        border-radius: .8em;
         .chart-header-balance {
           &__balance,
           &__amount-balance {
@@ -45,6 +48,10 @@
             font-size: $secondary-size;
             font-weight: $font-bold-size;
           }
+        }
+        .chart-header-icon{
+         display: flex;
+         align-items: center;
         }
       }
     }
