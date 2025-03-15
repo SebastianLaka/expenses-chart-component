@@ -77,6 +77,18 @@
           font-weight: $font-bold-size;
           font-size: $secondary-size;
         }
+        .chart-body-footer{
+          display: flex;
+          justify-content: space-between;
+          .chart-total, .chart-increase{
+            &__amount{
+              font-size: $secondary-size;
+            }
+            &__title{
+              color: $medium-brown;
+            }
+          }
+        }
       }
     }
   }
