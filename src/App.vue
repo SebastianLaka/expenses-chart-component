@@ -16,5 +16,6 @@ export default {
 @import '@/assets/colors.scss';
 body{
   background-color: $cream;
+  background-color: black;
 }
 </style>

@@ -11,7 +11,18 @@
         </div>
       </div>
       <div class="chart-body">
-        <p class="chart-body-header">Spending - Last 7 days</p>
+        <p class="chart-body__header">Spending - Last 7 days</p>
+        <div class="body-diagrams"></div>
+        <div class="chart-body-footer">
+          <div class="chart-total">
+            <p class="chart-total__title">Total this month</p>
+            <p class="chart-total__amount">$478.33</p>
+          </div>
+          <div class="chart-increase">
+            <p class="chart-increase__amount">+2.4%</p>
+            <p class="chart-increase__title">from last month</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -31,12 +42,13 @@
       justify-content: space-between;
       flex-direction: column;
       width: 100%;
+      gap: 1em 0;
       .chart-header {
         display: flex;
         justify-content: space-between;
         background-color: $soft-red;
         padding: 1em;
-        border-radius: .8em;
+        border-radius: 0.8em;
         .chart-header-balance {
           &__balance,
           &__amount-balance {
@@ -49,16 +61,18 @@
             font-weight: $font-bold-size;
           }
         }
-        .chart-header-icon{
-         display: flex;
-         align-items: center;
+        .chart-header-icon {
+          display: flex;
+          align-items: center;
         }
       }
-      .chart-body{
+      .chart-body {
+        display: flex;
+        flex-direction: column;
         padding: 1em;
         background-color: $very-pale-orange;
-        border-radius: .8em;
-        .chart-body-header{
+        border-radius: 0.8em;
+        &__header {
           text-align: center;
           font-weight: $font-bold-size;
           font-size: $secondary-size;
