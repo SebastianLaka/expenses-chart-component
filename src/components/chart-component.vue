@@ -13,9 +13,10 @@
       <div class="body-component">
         <p class="body-component__header">Spending - Last 7 days</p>
         <div class="chart-diagrams">
-          <div class="mon-chart"  v-for="chartItem in data" :key="chartItem">
-            <div class="mon-chart__chart">{{ chartItem.amount }}</div>
-            <p class="mon-chart__day">{{ chartItem.day}}</p>
+          <div class="mon-chart"  v-for="(chartItem, index) in data" 
+          :key="index">
+            <div class="mon-chart__chart" :style="{ height: chartItem.amount * 2  + 'px' }">{{ chartItem.amount }}</div>
+            <p class="mon-chart__day">{{ chartItem.day }}</p>
           </div>
           <!-- <div class="tue-chart">
             <div class="tue-chart__chart"></div>
@@ -123,7 +124,6 @@
               text-align: center;
             }
             &__chart {
-              height: 5em;
               background-color: $soft-red;
               width: 2em;
               border-radius: 0.4em;
@@ -157,8 +157,5 @@ export default {
       data: dataJson,
     }
   },
-  mounted() {
-    console.log('Dane z JSON:', this.data);
-  }
 }
 </script>
