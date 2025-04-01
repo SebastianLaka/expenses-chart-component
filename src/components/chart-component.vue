@@ -90,10 +90,10 @@
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          .mon-chart
-           {
+          .mon-chart{
             display: flex;
             flex-direction: column-reverse;
+            align-items: center;
             &__day {
               color: $medium-brown;
             }
@@ -101,6 +101,7 @@
               background-color: $soft-red;
               width: 3em;
               border-radius: 0.4em;
+              margin: 0 .75em;
             }
             &__chart-value{
               color: $very-pale-orange;
