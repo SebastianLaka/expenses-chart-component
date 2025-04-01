@@ -15,8 +15,8 @@
         <div class="chart-diagrams">
           <div class="mon-chart"  v-for="(chartItem, index) in data" 
           :key="index">
-            <div class="mon-chart__chart" :style="{ height: chartItem.amount * 2  + 'px' }">{{ chartItem.amount }}</div>
-            <p class="mon-chart__day">{{ chartItem.day }}</p>
+          <p class="mon-chart__day">{{ chartItem.day }}</p>
+          <div class="mon-chart__chart" :style="{ height: chartItem.amount * 2.5  + 'px' }"></div>
           </div>
           <!-- <div class="tue-chart">
             <div class="tue-chart__chart"></div>
@@ -119,6 +119,8 @@
           .fri-chart,
           .sat-chart,
           .sun-chart {
+            display: flex;
+            flex-direction: column-reverse;
             &__day {
               color: $medium-brown;
               text-align: center;
@@ -127,6 +129,7 @@
               background-color: $soft-red;
               width: 2em;
               border-radius: 0.4em;
+           
             }
           }
         }
