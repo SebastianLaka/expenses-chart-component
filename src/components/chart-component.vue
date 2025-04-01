@@ -14,7 +14,7 @@
         <p class="body-component__header">Spending - Last 7 days</p>
         <div class="chart-diagrams">
           <div class="mon-chart"  v-for="chartItem in data" :key="chartItem">
-            <div class="mon-chart__chart"></div>
+            <div class="mon-chart__chart">{{ chartItem.amount }}</div>
             <p class="mon-chart__day">{{ chartItem.day}}</p>
           </div>
           <!-- <div class="tue-chart">
