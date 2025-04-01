@@ -99,7 +99,7 @@
             }
             &__chart {
               background-color: $soft-red;
-              width: 2em;
+              width: 3em;
               border-radius: 0.4em;
            
             }
