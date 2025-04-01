@@ -70,7 +70,7 @@
       display: flex;
       justify-content: space-between;
       flex-direction: column;
-      width: 100%;
+      min-width: 25%;
       gap: 1em 0;
       .chart-header {
         display: flex;
@@ -117,9 +117,10 @@
               text-align: center;
             }
             &__chart{
-              height: 20px;
-              background-color: black;
+              height: 5em;
+              background-color: $soft-red;
               width: 2em;
+              border-radius: .4em;
             }
           }
         }
