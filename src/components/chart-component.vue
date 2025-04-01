@@ -18,30 +18,7 @@
           <p class="mon-chart__day">{{ chartItem.day }}</p>
           <div class="mon-chart__chart" :style="{ height: chartItem.amount * 2.5  + 'px' }"></div>
           </div>
-          <!-- <div class="tue-chart">
-            <div class="tue-chart__chart"></div>
-            <p class="tue-chart__day"></p>
-          </div>
-          <div class="wed-chart">
-            <div class="wed-chart__chart"></div>
-            <p class="wed-chart__day"></p>
-          </div>
-          <div class="thu-chart">
-            <div class="thu-chart__chart"></div>
-            <p class="thu-chart__day"></p>
-          </div>
-          <div class="fri-chart">
-            <div class="fri-chart__chart"></div>
-            <p class="fri-chart__day"></p>
-          </div>
-          <div class="sat-chart">
-            <div class="sat-chart__chart"></div>
-            <p class="sat-chart__day"></p>
-          </div>
-          <div class="sun-chart">
-            <div class="sun-chart__chart"></div>
-            <p class="sun-chart__day"></p>
-          </div> -->
+          
         </div>
         <div class="chart-body-footer">
           <div class="chart-total">
@@ -112,13 +89,8 @@
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          .mon-chart,
-          .tue-chart,
-          .wed-chart,
-          .thu-chart,
-          .fri-chart,
-          .sat-chart,
-          .sun-chart {
+          .mon-chart
+           {
             display: flex;
             flex-direction: column-reverse;
             &__day {
