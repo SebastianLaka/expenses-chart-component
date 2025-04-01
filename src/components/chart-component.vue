@@ -13,34 +13,34 @@
       <div class="body-component">
         <p class="body-component__header">Spending - Last 7 days</p>
         <div class="chart-diagrams">
-          <div class="mon-chart">
+          <div class="mon-chart"  v-for="chartItem in data" :key="chartItem">
             <div class="mon-chart__chart"></div>
-            <p class="mon-chart__day">mon</p>
+            <p class="mon-chart__day">{{ chartItem.day}}</p>
           </div>
-          <div class="tue-chart">
+          <!-- <div class="tue-chart">
             <div class="tue-chart__chart"></div>
-            <p class="tue-chart__day">tue</p>
+            <p class="tue-chart__day"></p>
           </div>
           <div class="wed-chart">
             <div class="wed-chart__chart"></div>
-            <p class="wed-chart__day">wed</p>
+            <p class="wed-chart__day"></p>
           </div>
           <div class="thu-chart">
             <div class="thu-chart__chart"></div>
-            <p class="thu-chart__day">thu</p>
+            <p class="thu-chart__day"></p>
           </div>
           <div class="fri-chart">
             <div class="fri-chart__chart"></div>
-            <p class="fri-chart__day">fri</p>
+            <p class="fri-chart__day"></p>
           </div>
           <div class="sat-chart">
             <div class="sat-chart__chart"></div>
-            <p class="sat-chart__day">sat</p>
+            <p class="sat-chart__day"></p>
           </div>
           <div class="sun-chart">
             <div class="sun-chart__chart"></div>
-            <p class="sun-chart__day">sun</p>
-          </div>
+            <p class="sun-chart__day"></p>
+          </div> -->
         </div>
         <div class="chart-body-footer">
           <div class="chart-total">
@@ -111,16 +111,22 @@
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          .mon-chart, .tue-chart, .wed-chart, .thu-chart, .fri-chart, .sat-chart, .sun-chart{
-            &__day{
+          .mon-chart,
+          .tue-chart,
+          .wed-chart,
+          .thu-chart,
+          .fri-chart,
+          .sat-chart,
+          .sun-chart {
+            &__day {
               color: $medium-brown;
               text-align: center;
             }
-            &__chart{
+            &__chart {
               height: 5em;
               background-color: $soft-red;
               width: 2em;
-              border-radius: .4em;
+              border-radius: 0.4em;
             }
           }
         }
@@ -143,7 +149,16 @@
 }
 </style>
 <script>
+import dataJson from '@/assets/data.json'
 export default {
   name: 'chartComponent',
+  data() {
+    return {
+      data: dataJson,
+    }
+  },
+  mounted() {
+    console.log('Dane z JSON:', this.data);
+  }
 }
 </script>
