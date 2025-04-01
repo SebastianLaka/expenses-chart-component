@@ -17,6 +17,7 @@
           :key="index">
           <p class="mon-chart__day">{{ chartItem.day }}</p>
           <div class="mon-chart__chart" :style="{ height: chartItem.amount * 2.5  + 'px' }"></div>
+          <p class="mon-chart__chart-value">%{{ chartItem.amount }}</p>
           </div>
           
         </div>
@@ -95,19 +96,26 @@
             flex-direction: column-reverse;
             &__day {
               color: $medium-brown;
-              text-align: center;
             }
             &__chart {
               background-color: $soft-red;
               width: 3em;
               border-radius: 0.4em;
-           
+            }
+            &__chart-value{
+              color: $very-pale-orange;
+              background-color: $dark-brown;
+              padding: .3em;
+              margin-bottom: .5em;
+              border-radius: .4em;
+              font-family: inherit;
             }
           }
         }
         .chart-body-footer {
           display: flex;
           justify-content: space-between;
+          
           .chart-total,
           .chart-increase {
             &__amount {
@@ -116,6 +124,7 @@
             &__title {
               color: $medium-brown;
             }
+           
           }
         }
       }
