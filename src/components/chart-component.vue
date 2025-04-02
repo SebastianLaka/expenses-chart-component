@@ -12,11 +12,11 @@
       </div>
       <div class="body-component">
         <p class="body-component__header">Spending - Last 7 days</p>
-        <div class="chart-diagrams">
-          <div class="mon-chart" v-for="(chartItem, index) in data" :key="index">
-            <p class="mon-chart__day">{{ chartItem.day }}</p>
-            <div class="mon-chart__chart" :style="{ height: chartItem.amount * 2.5 + 'px' }"></div>
-            <p class="mon-chart__chart-value">%{{ chartItem.amount }}</p>
+        <div class="charts">
+          <div class="days-charts" v-for="(chartItem, index) in data" :key="index">
+            <p class="days-charts__day">{{ chartItem.day }}</p>
+            <div class="days-charts__chart" :style="{ height: chartItem.amount * 4 + 'px' }"></div>
+            <p class="days-charts__chart-value">%{{ chartItem.amount }}</p>
           </div>
         </div>
         <div class="chart-body-footer">
@@ -36,13 +36,13 @@
 <style lang="scss" scoped>
 @import '@/assets/colors.scss';
 @import '@/assets/fonts.scss';
-@media (min-width: 375px) {
+@media (min-width: 23.4em) {
     .main-component {
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100svh;
-      padding: 0.4em;
+      padding: 0.3em;
       .chart-component {
         display: flex;
         justify-content: space-between;
@@ -84,11 +84,11 @@
             font-weight: $font-bold-size;
             font-size: $primary-size;
           }
-          .chart-diagrams {
+          .charts {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            .mon-chart {
+            .days-charts {
               display: flex;
               flex-direction: column-reverse;
               align-items: center;
@@ -97,7 +97,7 @@
               }
               &__chart {
                 background-color: $soft-red;
-                width: 2em;
+                width: 2.5em;
                 border-radius: 0.4em;
               }
               &__chart-value {
@@ -129,8 +129,7 @@
       }
     }
   }
-
-@media (min-width: 475px) {
+@media (min-width: 26.56em) {
   .main-component {
     .chart-component {
       .chart-header{
@@ -148,10 +147,10 @@
         &__header{
           font-size: $secondary-size;
         }
-        .chart-diagrams {
-          .mon-chart {
+        .charts {
+          .days-charts {
             &__chart {
-              min-width: 2.5em;
+              width: 2.8em;
             }
           }
         }
@@ -167,6 +166,22 @@
               }
             }
           }
+      }
+    }
+  }
+}
+@media (min-width: 36em){
+  .main-component {
+    .chart-component {
+      min-width: 36em;
+      .body-component {
+        .charts {
+          .days-charts {
+            &__chart {
+              width: 3.5em;
+            }
+          }
+        }
       }
     }
   }
