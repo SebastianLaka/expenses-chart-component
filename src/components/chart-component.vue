@@ -15,7 +15,12 @@
         <div class="charts">
           <div class="days-charts" v-for="(chartItem, index) in data" :key="index">
             <p class="days-charts__day">{{ chartItem.day }}</p>
-            <div class="days-charts__chart" :style="{ height: chartItem.amount * 4 + 'px' }"></div>
+            <Transition name="chart">
+              <div
+                class="days-charts__chart"
+                :style="{ height: chartItem.amount * 4 + 'px' }"
+              ></div>
+            </Transition>
             <p class="days-charts__chart-value">%{{ chartItem.amount }}</p>
           </div>
         </div>
@@ -37,114 +42,116 @@
 @import '@/assets/colors.scss';
 @import '@/assets/fonts.scss';
 @media (min-width: 23.4em) {
-    .main-component {
+  .main-component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100svh;
+    padding: 0.3em;
+    .chart-component {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100svh;
-      padding: 0.3em;
-      .chart-component {
+      justify-content: space-between;
+      flex-direction: column;
+      flex-wrap: wrap;
+      min-width: 100%;
+      .chart-header {
         display: flex;
         justify-content: space-between;
+        background-color: $soft-red;
+        padding: 1em;
+        border-radius: 0.8em;
+        .chart-header-balance {
+          &__balance,
+          &__amount-balance {
+            color: $cream;
+            font-size: $mobile-font-size;
+            font-weight: $font-weight-size;
+          }
+          &__amount-balance {
+            font-size: $primary-size;
+            font-weight: $font-bold-size;
+          }
+        }
+        .chart-header-icon-container {
+          display: flex;
+          align-items: center;
+        }
+      }
+      .body-component {
+        display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-        min-width: 100%;
-        .chart-header {
+        background-color: $very-pale-orange;
+        border-radius: 0.8em;
+        gap: 2em;
+        margin-top: 0.5em;
+        &__header {
+          text-align: center;
+          font-weight: $font-bold-size;
+          font-size: $primary-size;
+        }
+        .charts {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .days-charts {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            &__day {
+              color: $medium-brown;
+            }
+            &__chart {
+              background-color: $soft-red;
+              width: 2.5em;
+              border-radius: 0.4em;
+              cursor: pointer;
+            }
+            &__chart-value {
+              color: $very-pale-orange;
+              background-color: $dark-brown;
+              padding: 0.3em;
+              margin-bottom: 0.5em;
+              border-radius: 0.4em;
+              font-family: inherit;
+              font-size: $mobile-font-size;
+            }
+          }
+        }
+        .chart-body-footer {
           display: flex;
           justify-content: space-between;
-          background-color: $soft-red;
-          padding: 1em;
-          border-radius: 0.8em;
-          .chart-header-balance {
-            &__balance,
-            &__amount-balance {
-              color: $cream;
-              font-size: $mobile-font-size;
-              font-weight: $font-weight-size;
-            }
-            &__amount-balance {
+          .chart-total,
+          .chart-increase {
+            &__amount {
               font-size: $primary-size;
               font-weight: $font-bold-size;
             }
-          }
-          .chart-header-icon-container {
-            display: flex;
-            align-items: center;
-          }
-        }
-        .body-component {
-          display: flex;
-          flex-direction: column;
-          background-color: $very-pale-orange;
-          border-radius: 0.8em;
-          gap: 2em;
-          margin-top: 0.5em;
-          &__header {
-            text-align: center;
-            font-weight: $font-bold-size;
-            font-size: $primary-size;
-          }
-          .charts {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            .days-charts {
-              display: flex;
-              flex-direction: column-reverse;
-              align-items: center;
-              &__day {
-                color: $medium-brown;
-              }
-              &__chart {
-                background-color: $soft-red;
-                width: 2.5em;
-                border-radius: 0.4em;
-              }
-              &__chart-value {
-                color: $very-pale-orange;
-                background-color: $dark-brown;
-                padding: 0.3em;
-                margin-bottom: 0.5em;
-                border-radius: 0.4em;
-                font-family: inherit;
-                font-size: $mobile-font-size;
-              }
-            }
-          }
-          .chart-body-footer {
-            display: flex;
-            justify-content: space-between;
-            .chart-total,
-            .chart-increase {
-              &__amount {
-                font-size: $primary-size;
-              }
-              &__title {
-                color: $medium-brown;
-                font-size: $mobile-font-size;
-              }
+            &__title {
+              color: $medium-brown;
+              font-size: $mobile-font-size;
             }
           }
         }
       }
     }
   }
+}
 @media (min-width: 26.56em) {
   .main-component {
     .chart-component {
-      .chart-header{
-        .chart-header-balance{
-          &__balance{
+      .chart-header {
+        .chart-header-balance {
+          &__balance {
             font-size: $primary-size;
           }
-          &__amount-balance{
+          &__amount-balance {
             font-size: $secondary-size;
           }
         }
       }
       .body-component {
         padding: 1.5em;
-        &__header{
+        &__header {
           font-size: $secondary-size;
         }
         .charts {
@@ -155,22 +162,22 @@
           }
         }
         .chart-body-footer {
-            .chart-total,
-            .chart-increase {
-              &__amount {
-                font-size: $secondary-size;
-              }
-              &__title {
-                color: $medium-brown;
-                font-size: $primary-size;
-              }
+          .chart-total,
+          .chart-increase {
+            &__amount {
+              font-size: $secondary-size;
+            }
+            &__title {
+              color: $medium-brown;
+              font-size: $primary-size;
             }
           }
+        }
       }
     }
   }
 }
-@media (min-width: 36em){
+@media (min-width: 36em) {
   .main-component {
     .chart-component {
       min-width: 36em;
@@ -194,7 +201,9 @@ export default {
   data() {
     return {
       data: dataJson,
+      isAnimated: false,
     }
   },
+  
 }
 </script>
