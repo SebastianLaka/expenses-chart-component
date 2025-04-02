@@ -6,8 +6,8 @@
           <p class="chart-header-balance__balance">My balance</p>
           <p class="chart-header-balance__amount-balance">$921.48</p>
         </div>
-        <div class="chart-header-icon">
-          <img src="../assets/icons/logo.svg" alt="Component logo" />
+        <div class="chart-header-icon-container">
+          <img src="../assets/icons/logo.svg" alt="Component logo" class="logo"/>
         </div>
       </div>
       <div class="body-component">
@@ -38,19 +38,20 @@
 <style lang="scss" scoped>
 @import '@/assets/colors.scss';
 @import '@/assets/fonts.scss';
-@media (min-width: 320px) {
+@media (min-width: 375px) {
+  body{
   .main-component {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1em;
     height: 100svh;
+    padding: .4em;
     .chart-component {
       display: flex;
       justify-content: space-between;
       flex-direction: column;
-      min-width: 25%;
-      gap: 1em 0;
+      flex-wrap: wrap;
+      min-width: 100%;
       .chart-header {
         display: flex;
         justify-content: space-between;
@@ -61,15 +62,15 @@
           &__balance,
           &__amount-balance {
             color: $cream;
-            font-size: $primary-size;
+            font-size: $mobile-font-size;
             font-weight: $font-weight-size;
           }
           &__amount-balance {
-            font-size: $secondary-size;
+            font-size: $primary-size;
             font-weight: $font-bold-size;
           }
         }
-        .chart-header-icon {
+        .chart-header-icon-container {
           display: flex;
           align-items: center;
         }
@@ -77,14 +78,14 @@
       .body-component {
         display: flex;
         flex-direction: column;
-        padding: 1em;
         background-color: $very-pale-orange;
         border-radius: 0.8em;
-        gap: 1em 0;
+        gap: 2em;
+        margin-top: .5em;
         &__header {
           text-align: center;
           font-weight: $font-bold-size;
-          font-size: $secondary-size;
+          font-size: $primary-size;
         }
         .chart-diagrams {
           display: flex;
@@ -99,9 +100,9 @@
             }
             &__chart {
               background-color: $soft-red;
-              width: 3em;
+              width: 2em;
               border-radius: 0.4em;
-              margin: 0 .75em;
+              
             }
             &__chart-value{
               color: $very-pale-orange;
@@ -110,27 +111,28 @@
               margin-bottom: .5em;
               border-radius: .4em;
               font-family: inherit;
+              font-size: $mobile-font-size;
             }
           }
         }
         .chart-body-footer {
           display: flex;
           justify-content: space-between;
-          
           .chart-total,
           .chart-increase {
             &__amount {
-              font-size: $secondary-size;
+              font-size: $primary-size;
             }
             &__title {
               color: $medium-brown;
+              font-size: $mobile-font-size;
             }
-           
           }
         }
       }
     }
   }
+}
 }
 </style>
 <script>
