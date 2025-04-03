@@ -15,12 +15,7 @@
         <div class="charts">
           <div class="days-charts" v-for="(chartItem, index) in data" :key="index">
             <p class="days-charts__day">{{ chartItem.day }}</p>
-            <Transition name="chart">
-              <div
-                class="days-charts__chart"
-                :style="{ height: chartItem.amount * 4 + 'px' }"
-              ></div>
-            </Transition>
+            <div class="days-charts__chart" :style="{ height: chartItem.amount * 4 + 'px' }"></div>
             <p class="days-charts__chart-value">%{{ chartItem.amount }}</p>
           </div>
         </div>
@@ -105,7 +100,9 @@
               width: 2.5em;
               border-radius: 0.4em;
               cursor: pointer;
+              transition: background-color 0.3s ease-in-out;
             }
+
             &__chart-value {
               color: $very-pale-orange;
               background-color: $dark-brown;
@@ -114,6 +111,17 @@
               border-radius: 0.4em;
               font-family: inherit;
               font-size: $mobile-font-size;
+              opacity: 0;
+              transition: opacity 0.3s ease-in-out;
+            }
+            &:hover {
+              .days-charts__chart {
+                background-color: $cyan;
+              }
+
+              .days-charts__chart-value {
+                opacity: 1;
+              }
             }
           }
         }
@@ -201,9 +209,7 @@ export default {
   data() {
     return {
       data: dataJson,
-      isAnimated: false,
     }
   },
-  
 }
 </script>
